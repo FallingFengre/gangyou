@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 技能培训</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/training.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 页面顶部 -->
+        <div class="page-header">
+            <div class="header-content">
+                <a href="profile.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <h2>技能培训</h2>
+                <div class="theme-toggle-btn">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </div>
+            </div>
+            <!-- 训练积分进度条 -->
+            <div class="training-score">
+                <div class="training-score-info">
+                    <div>
+                        <span class="score-value">375</span>
+                        <span class="score-label">学习积分</span>
+                    </div>
+                    <a href="#" class="score-history">积分明细 <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="score-progress">
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span>距离下一级</span>
+                        <span>375/500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 课程类别选项卡 -->
+        <div class="course-tabs">
+            <div class="tab-scroll">
+                <a href="#" class="tab-item active">推荐</a>
+                <a href="#" class="tab-item">安保技能</a>
+                <a href="#" class="tab-item">体能训练</a>
+                <a href="#" class="tab-item">时政学习</a>
+                <a href="#" class="tab-item">职业发展</a>
+                <a href="#" class="tab-item">专家讲座</a>
+            </div>
+        </div>
+
+        <!-- 搜索栏 -->
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="搜索课程、技能或讲师">
+            </div>
+        </div>
+
+        <!-- 轮播推荐 -->
+        <div class="featured-courses">
+            <div class="featured-scroll">
+                <div class="featured-item">
+                    <div class="featured-card">
+                        <div class="featured-badge"><i class="fas fa-star"></i> 精品课程</div>
+                        <img src="/api/placeholder/400/200" alt="应急处理培训">
+                        <div class="featured-content">
+                            <h3>应急情况处理专项训练</h3>
+                            <p>学习如何应对突发安全事件，提升应急反应能力</p>
+                            <div class="featured-stats">
+                                <span><i class="fas fa-user-graduate"></i> 2,451人已学习</span>
+                                <span class="featured-points">+30积分</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-card">
+                        <img src="/api/placeholder/400/200" alt="党建学习">
+                        <div class="featured-content">
+                            <h3>二十大精神学习解读</h3>
+                            <p>深入学习党的二十大精神，做思想过硬的新时代保安</p>
+                            <div class="featured-stats">
+                                <span><i class="fas fa-user-graduate"></i> 3,127人已学习</span>
+                                <span class="featured-points">+25积分</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-card">
+                        <div class="featured-badge"><i class="fas fa-certificate"></i> 认证课程</div>
+                        <img src="/api/placeholder/400/200" alt="急救技能">
+                        <div class="featured-content">
+                            <h3>保安急救技能认证课程</h3>
+                            <p>掌握基本急救知识，获取急救技能认证证书</p>
+                            <div class="featured-stats">
+                                <span><i class="fas fa-user-graduate"></i> 1,823人已学习</span>
+                                <span class="featured-points">+40积分</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学习进度 -->
+        <div class="learning-progress">
+            <div class="section-header">
+                <h3>继续学习</h3>
+                <a href="#" class="view-all">查看全部</a>
+            </div>
+            <div class="progress-courses">
+                <div class="progress-course">
+                    <img src="/api/placeholder/120/80" alt="冲突处理" class="course-thumbnail">
+                    <div class="course-info">
+                        <h4>冲突处理技巧实战</h4>
+                        <div class="course-meta">
+                            <span class="course-type"><i class="fas fa-video"></i> 视频课程</span>
+                            <span class="course-progress">已完成 4/10</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="continue-btn">
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+                <div class="progress-course">
+                    <img src="/api/placeholder/120/80" alt="法律知识" class="course-thumbnail">
+                    <div class="course-info">
+                        <h4>保安必备法律知识</h4>
+                        <div class="course-meta">
+                            <span class="course-type"><i class="fas fa-book"></i> 文章</span>
+                            <span class="course-progress">已完成 2/5</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="continue-btn">
+                        <i class="fas fa-book-reader"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 课程类别区域 -->
+        <div class="course-categories">
+            <div class="category-section">
+                <div class="section-header">
+                    <h3>安保技能</h3>
+                    <a href="#" class="view-all">更多</a>
+                </div>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="/api/placeholder/200/120" alt="巡逻技巧">
+                            <div class="course-type-badge"><i class="fas fa-video"></i> 视频</div>
+                        </div>
+                        <div class="course-content">
+                            <h4>高效巡逻技巧与安全隐患排查</h4>
+                            <div class="course-stats">
+                                <span><i class="fas fa-clock"></i> 45分钟</span>
+                                <span><i class="fas fa-chart-bar"></i> 初级</span>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-points">+15积分</span>
+                                <span class="course-rating"><i class="fas fa-star"></i> 4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="/api/placeholder/200/120" alt="防盗系统">
+                            <div class="course-type-badge"><i class="fas fa-book"></i> 文章</div>
+                        </div>
+                        <div class="course-content">
+                            <h4>现代防盗系统操作指南</h4>
+                            <div class="course-stats">
+                                <span><i class="fas fa-clock"></i> 30分钟</span>
+                                <span><i class="fas fa-chart-bar"></i> 中级</span>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-points">+10积分</span>
+                                <span class="course-rating"><i class="fas fa-star"></i> 4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-section">
+                <div class="section-header">
+                    <h3>体能训练</h3>
+                    <a href="#" class="view-all">更多</a>
+                </div>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="/api/placeholder/200/120" alt="体能训练">
+                            <div class="course-type-badge"><i class="fas fa-dumbbell"></i> 训练</div>
+                        </div>
+                        <div class="course-content">
+                            <h4>保安日常体能训练计划</h4>
+                            <div class="course-stats">
+                                <span><i class="fas fa-clock"></i> 60分钟</span>
+                                <span><i class="fas fa-chart-bar"></i> 全级别</span>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-points">+20积分</span>
+                                <span class="course-rating"><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="/api/placeholder/200/120" alt="格斗基础">
+                            <div class="course-type-badge"><i class="fas fa-video"></i> 视频</div>
+                        </div>
+                        <div class="course-content">
+                            <h4>自防护格斗基础动作学习</h4>
+                            <div class="course-stats">
+                                <span><i class="fas fa-clock"></i> 50分钟</span>
+                                <span><i class="fas fa-chart-bar"></i> 初级</span>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-points">+15积分</span>
+                                <span class="course-rating"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-section">
+                <div class="section-header">
+                    <h3>时政学习</h3>
+                    <a href="#" class="view-all">更多</a>
+                </div>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="/api/placeholder/200/120" alt="青年大学习">
+                            <div class="course-type-badge"><i class="fas fa-video"></i> 视频</div>
+                            <div class="special-badge">推荐</div>
+                        </div>
+                        <div class="course-content">
+                            <h4>青年大学习：新时代新青年</h4>
+                            <div class="course-stats">
+                                <span><i class="fas fa-clock"></i> 20分钟</span>
+                                <span><i class="fas fa-chart-bar"></i> 全级别</span>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-points">+10积分</span>
+                                <span class="course-rating"><i class="fas fa-star"></i> 4.6</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="/api/placeholder/200/120" alt="爱国教育">
+                            <div class="course-type-badge"><i class="fas fa-book"></i> 文章</div>
+                        </div>
+                        <div class="course-content">
+                            <h4>爱国主义教育与职业道德</h4>
+                            <div class="course-stats">
+                                <span><i class="fas fa-clock"></i> 25分钟</span>
+                                <span><i class="fas fa-chart-bar"></i> 全级别</span>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-points">+10积分</span>
+                                <span class="course-rating"><i class="fas fa-star"></i> 4.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-section">
+                <div class="section-header">
+                    <h3>职业发展</h3>
+                    <a href="#" class="view-all">更多</a>
+                </div>
+                <div class="course-grid">
+                    <div class="course-card premium">
+                        <div class="course-image">
+                            <img src="/api/placeholder/200/120" alt="认证培训">
+                            <div class="course-type-badge"><i class="fas fa-certificate"></i> 认证</div>
+                            <div class="premium-badge"><i class="fas fa-crown"></i> 付费</div>
+                        </div>
+                        <div class="course-content">
+                            <h4>保安职业资格认证培训</h4>
+                            <div class="course-stats">
+                                <span><i class="fas fa-clock"></i> 10小时</span>
+                                <span><i class="fas fa-chart-bar"></i> 高级</span>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-price">¥99</span>
+                                <span class="course-rating"><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image">
+                            <img src="/api/placeholder/200/120" alt="简历写作">
+                            <div class="course-type-badge"><i class="fas fa-file-alt"></i> 指南</div>
+                        </div>
+                        <div class="course-content">
+                            <h4>保安行业跳槽简历写作技巧</h4>
+                            <div class="course-stats">
+                                <span><i class="fas fa-clock"></i> 40分钟</span>
+                                <span><i class="fas fa-chart-bar"></i> 初级</span>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-points">+15积分</span>
+                                <span class="course-rating"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学习挑战 -->
+        <div class="learning-challenges">
+            <div class="section-header">
+                <h3>本月挑战</h3>
+                <a href="#" class="view-all">全部挑战</a>
+            </div>
+            <div class="challenges-container">
+                <div class="challenge-card">
+                    <div class="challenge-content">
+                        <div class="challenge-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="challenge-info">
+                            <h4>7天学习挑战</h4>
+                            <p>连续7天完成任意学习任务</p>
+                            <div class="challenge-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 71%;"></div>
+                                </div>
+                                <div class="challenge-days">
+                                    <span class="completed">5</span>
+                                    <span>/</span>
+                                    <span>7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="challenge-reward">
+                        <span class="reward-value">+50</span>
+                        <span class="reward-label">积分</span>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-content">
+                        <div class="challenge-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="challenge-info">
+                            <h4>安保技能精通</h4>
+                            <p>完成所有初级安保技能课程</p>
+                            <div class="challenge-progress">
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 40%;"></div>
+                                </div>
+                                <div class="challenge-days">
+                                    <span class="completed">4</span>
+                                    <span>/</span>
+                                    <span>10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="challenge-reward">
+                        <span class="reward-value">+100</span>
+                        <span class="reward-label">积分</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学习交流区 -->
+        <div class="learning-community">
+            <div class="section-header">
+                <h3>学习交流</h3>
+                <a href="#" class="view-all">加入讨论</a>
+            </div>
+            <div class="community-posts">
+                <div class="community-post">
+                    <div class="post-header">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" class="post-avatar">
+                        <div class="post-user">
+                            <div class="post-username">李安保</div>
+                            <div class="post-badge">二星铜卫</div>
+                        </div>
+                        <div class="post-time">2小时前</div>
+                    </div>
+                    <div class="post-content">
+                        <p>刚完成了急救技能认证课程，收获很多！有没有同学也在学这个的，想交流一下经验。</p>
+                    </div>
+                    <div class="post-actions">
+                        <div class="action-btn">
+                            <i class="far fa-comment"></i>
+                            <span>12</span>
+                        </div>
+                        <div class="action-btn">
+                            <i class="far fa-heart"></i>
+                            <span>24</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-post">
+                    <div class="post-header">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" class="post-avatar">
+                        <div class="post-user">
+                            <div class="post-username">王教官</div>
+                            <div class="post-badge official">官方讲师</div>
+                        </div>
+                        <div class="post-time">昨天</div>
+                    </div>
+                    <div class="post-content">
+                        <p>下周三晚上8点将在线上举办"商场突发事件处理"直播课，欢迎各位同学来参加，现在可以预约提醒。</p>
+                    </div>
+                    <div class="post-actions">
+                        <button class="reserve-btn">
+                            <i class="far fa-calendar-check"></i>
+                            <span>预约提醒</span>
+                        </button>
+                        <div class="action-btn">
+                            <i class="far fa-heart"></i>
+                            <span>45</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 积分兑换区 -->
+        <div class="points-exchange">
+            <div class="section-header">
+                <h3>积分兑换</h3>
+                <a href="#" class="view-all">全部奖励</a>
+            </div>
+            <div class="exchange-items-container">
+                <div class="exchange-item">
+                    <img src="/api/placeholder/80/80" alt="证书" class="exchange-image">
+                    <div class="exchange-info">
+                        <h4>资格证书考试名额</h4>
+                        <div class="exchange-points">500积分</div>
+                    </div>
+                    <button class="exchange-btn">兑换</button>
+                </div>
+                <div class="exchange-item">
+                    <img src="/api/placeholder/80/80" alt="水杯" class="exchange-image">
+                    <div class="exchange-info">
+                        <h4>岗友定制保温杯</h4>
+                        <div class="exchange-points">200积分</div>
+                    </div>
+                    <button class="exchange-btn">兑换</button>
+                </div>
+                <div class="exchange-item">
+                    <img src="/api/placeholder/80/80" alt="T恤" class="exchange-image">
+                    <div class="exchange-info">
+                        <h4>岗友文化T恤</h4>
+                        <div class="exchange-points">150积分</div>
+                    </div>
+                    <button class="exchange-btn">兑换</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="social.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        // 主题切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            // 检查本地存储中的主题设置
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+            
+            // 切换主题
+            themeToggleBtn.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+            
+            // 更新主题图标
+            function updateThemeIcon(theme) {
+                if (theme === 'dark') {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

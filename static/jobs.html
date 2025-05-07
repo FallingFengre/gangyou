@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 岗位地图</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FVRWQc7Klepa1IS96IIwUB5CklfAFe5j"></script>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/jobs.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <a href="javascript:history.back()" class="back-btn">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h2>岗位地图</h2>
+            <div class="nav-actions">
+                <a href="#" class="icon-btn">
+                    <i class="fas fa-bell"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- 搜索筛选栏 -->
+        <div class="search-filter">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="搜索岗位、公司或地点">
+            </div>
+            <div class="filter-chips">
+                <div class="chip active">
+                    <span>全部</span>
+                </div>
+                <div class="chip">
+                    <span>商场</span>
+                </div>
+                <div class="chip">
+                    <span>社区</span>
+                </div>
+                <div class="chip">
+                    <span>写字楼</span>
+                </div>
+                <div class="chip">
+                    <span>工厂</span>
+                </div>
+                <div class="chip">
+                    <span>学校</span>
+                </div>
+                <div class="chip">
+                    <span>事业单位</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 地图视图 -->
+        <div class="map-container">
+            <!-- <img src="/api/placeholder/800/400" alt="地图视图" class="map-image"> -->
+            <!-- <div class=smoke> -->
+            <div id="allmap" class="map-image"></div>
+            <script>
+                var map = new BMap.Map("allmap");
+                map.centerAndZoom(new BMap.Point(114.414724,30.515977),13);
+                map.addControl(new BMap.MapTypeControl());  
+                map.setCurrentCity("武汉"); 
+                map.enableScrollWheelZoom(true); 
+            </script>
+            <!-- </div> -->
+            <div class="map-overlay">
+                <!-- 地图上的岗位标记 -->
+                <div class="map-marker" style="top: 30%; left: 40%;">
+                    <div class="marker-bubble">
+                        <span>5K+</span>
+                    </div>
+                </div>
+                <div class="map-marker hot" style="top: 50%; left: 60%;">
+                    <div class="marker-bubble">
+                        <span>6K+</span>
+                    </div>
+                </div>
+                <div class="map-marker" style="top: 35%; left: 70%;">
+                    <div class="marker-bubble">
+                        <span>4.5K</span>
+                    </div>
+                </div>
+            </div>
+            <div class="map-controls">
+                <button class="control-btn">
+                    <i class="fas fa-location-arrow"></i>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <div class="view-toggle">
+                <button class="toggle-btn active">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>地图</span>
+                </button>
+                <button class="toggle-btn">
+                    <i class="fas fa-list"></i>
+                    <span>列表</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 附近岗位列表 -->
+        <div class="nearby-jobs">
+            <div class="section-header">
+                <h3>附近热门岗位</h3>
+                <span class="location-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    武汉市洪山区
+                </span>
+            </div>
+            
+            <div class="jobs-list">
+                <!-- 岗位卡片1 -->
+                <div class="job-card">
+                    <div class="company-logo">
+                        <img src="../img/logo0.webp" alt="公司Logo">
+                    </div>
+                    <div class="job-info">
+                        <h4>商场巡逻保安</h4>
+                        <div class="company-name">武汉安保服务有限公司</div>
+                        <div class="job-tags">
+                            <span class="tag"><i class="fas fa-map-marker-alt"></i> 洪山区</span>
+                            <span class="tag"><i class="fas fa-graduation-cap"></i> 初中及以上</span>
+                            <span class="tag"><i class="fas fa-user-friends"></i> 10-20人</span>
+                        </div>
+                        <div class="job-highlights">
+                            <span class="highlight">五险一金</span>
+                            <span class="highlight">双休</span>
+                            <span class="highlight">包吃住</span>
+                        </div>
+                    </div>
+                    <div class="job-salary">
+                        <div class="salary-amount">5K-6K</div>
+                        <div class="salary-unit">元/月</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 岗位卡片2 -->
+                <div class="job-card premium">
+                    <div class="premium-tag">优质岗位</div>
+                    <div class="company-logo">
+                        <img src="../img/logo1.jfif" alt="公司Logo">
+                    </div>
+                    <div class="job-info">
+                        <h4>高级安防监控员</h4>
+                        <div class="company-name">华星科技安保集团</div>
+                        <div class="job-tags">
+                            <span class="tag"><i class="fas fa-map-marker-alt"></i> 洪山区</span>
+                            <span class="tag"><i class="fas fa-graduation-cap"></i> 大专及以上</span>
+                            <span class="tag"><i class="fas fa-user-friends"></i> 5-10人</span>
+                        </div>
+                        <div class="job-highlights">
+                            <span class="highlight">五险一金</span>
+                            <span class="highlight">年终奖</span>
+                            <span class="highlight">技能培训</span>
+                        </div>
+                    </div>
+                    <div class="job-salary">
+                        <div class="salary-amount">7K-9K</div>
+                        <div class="salary-unit">元/月</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 岗位卡片3 -->
+                <div class="job-card">
+                    <div class="company-logo">
+                        <img src="../img/logo2.webp" alt="公司Logo">
+                    </div>
+                    <div class="job-info">
+                        <h4>小区门岗保安</h4>
+                        <div class="company-name">城市物业管理有限公司</div>
+                        <div class="job-tags">
+                            <span class="tag"><i class="fas fa-map-marker-alt"></i> 洪山区</span>
+                            <span class="tag"><i class="fas fa-graduation-cap"></i> 不限学历</span>
+                            <span class="tag"><i class="fas fa-user-friends"></i> 5人</span>
+                        </div>
+                        <div class="job-highlights">
+                            <span class="highlight">社保</span>
+                            <span class="highlight">排班灵活</span>
+                            <span class="highlight">宿舍</span>
+                        </div>
+                    </div>
+                    <div class="job-salary">
+                        <div class="salary-amount">4K-5K</div>
+                        <div class="salary-unit">元/月</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <span>4.2</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="load-more-btn">
+                查看更多岗位
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+
+        <!-- 岗位鉴别专区 -->
+        <div class="job-reviews">
+            <div class="section-header">
+                <h3>岗位鉴别专区</h3>
+                <a href="#" class="view-all">更多 <i class="fas fa-chevron-right"></i></a>
+            </div>
+            
+            <div class="reviews-list">
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" class="reviewer-avatar">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">
+                                <span>匿名</span>
+                                <span class="rank-badge small">四星金卫</span>
+                            </div>
+                            <div class="job-name">商场保安 @ 武汉安保服务有限公司</div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>工作环境：空调全覆盖，设备齐全，换衣间干净整洁。</p>
+                        <p>工作强度：中等，每天巡逻步数约1.2万步，需要站立8小时。</p>
+                        <p>公司福利：五险一金，节假日双倍工资，提供工作餐。</p>
+                        <p>晋升机会：内部有完善的晋升机制，表现优异可升为组长。</p>
+                        <div class="overall-rating">
+                            <div class="rating-label">综合评分</div>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-value">4.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="write-review-btn">
+                <i class="fas fa-pen"></i>
+                分享我的岗位体验
+            </button>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="social.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

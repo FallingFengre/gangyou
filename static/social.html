@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 社交圈</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/social.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <div class="logo">
+                <img src="../img/logo.png"  alt="岗友" />
+                <h1>岗友</h1>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="icon-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-btn"><i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <a href="profile.html" class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                    <span class="rank-badge">三星银卫</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- 社交圈顶部 -->
+        <div class="social-header">
+            <div class="search-post">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="搜索话题、用户或内容">
+                </div>
+                <button class="post-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="tabs">
+                <a href="#" class="tab active">推荐</a>
+                <a href="#" class="tab">热点</a>
+                <a href="#" class="tab">同城</a>
+                <a href="#" class="tab">关注</a>
+            </div>
+        </div>
+
+        <!-- 热门话题 -->
+        <div class="topic-scroll">
+            <div class="topic-item">
+                <i class="fas fa-fire"></i>
+                <span>#保安的一天#</span>
+            </div>
+            <div class="topic-item">
+                <i class="fas fa-certificate"></i>
+                <span>#技能分享#</span>
+            </div>
+            <div class="topic-item">
+                <i class="fas fa-star"></i>
+                <span>#岗位鉴别#</span>
+            </div>
+            <div class="topic-item">
+                <span>#健康挑战#</span>
+            </div>
+            <div class="topic-item">
+                <span>#八小时之外#</span>
+            </div>
+        </div>
+
+        <!-- 内容流 -->
+        <div class="content-feed">
+            <!-- 置顶内容 -->
+            <div class="content-card pinned">
+                <div class="pinned-tag">置顶</div>
+                <div class="card-header">
+                    <img src="../img/logo.png"  alt="官方账号" />
+                    <div class="user-info">
+                        <h4>平台官方</h4>
+                        <span class="official-badge">官方</span>
+                    </div>
+                    <span class="post-time">1天前</span>
+                </div>
+                <div class="card-content">
+                    <p>5月"守护之星"评选活动开始啦！分享你的工作日常，赢取丰厚奖励。优秀者将获得"五星永卫"荣誉勋章！</p>
+                    <img src="/api/placeholder/300/150" alt="活动宣传图" />
+                </div>
+                <div class="card-actions">
+                    <button><i class="far fa-heart"></i> 358</button>
+                    <button><i class="far fa-comment"></i> 42</button>
+                    <button><i class="far fa-share-square"></i> 分享</button>
+                </div>
+            </div>
+
+            <!-- 普通内容 -->
+            <div class="content-card">
+                <div class="card-header">
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                    <div class="user-info">
+                        <h4>赵铁卫</h4>
+                        <span class="user-rank">一星铁卫</span>
+                    </div>
+                    <span class="post-time">3小时前</span>
+                </div>
+                <div class="card-content">
+                    <p>入职一个月了，今天第一次独立处理突发事件，心情紧张但还算顺利。请教各位前辈，遇到醉酒闹事的客人，有什么好的处理技巧吗？ #新手求助 #岗位日常</p>
+                </div>
+                <div class="card-actions">
+                    <button><i class="far fa-heart"></i> 45</button>
+                    <button><i class="far fa-comment"></i> 23</button>
+                    <button><i class="far fa-share-square"></i></button>
+                </div>
+                <!-- 评论区 -->
+                <div class="comments-preview">
+                    <div class="comment">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=30"  alt="评论用户头像" />
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-username">王思聪</span>
+                                <span class="user-rank small">四星金卫</span>
+                            </div>
+                            <p>保持冷静很重要，先观察醉酒程度，语气温和但坚定，必要时请求支援。多一分耐心，少一分冲动。</p>
+                        </div>
+                    </div>
+                    <a href="#" class="view-more">查看全部23条评论</a>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                    <div class="user-info">
+                        <h4>张永卫</h4>
+                        <span class="user-rank">五星永卫</span>
+                    </div>
+                    <span class="post-time">昨天</span>
+                </div>
+                <div class="card-content">
+                    <p>【岗位鉴别】商场巡逻岗位实录：月薪5000-6000，双休，工作强度中等，主要负责巡视商场安全、处理顾客纠纷、协助商户安全工作。环境空调全覆盖，公司氛围不错，年终有双薪。缺点是节假日需要轮班，春节期间加班较多。 #岗位鉴别 #真实薪资</p>
+                    <img src="../img/content2.webp" alt="商场巡逻照片" />
+                </div>
+                <div class="card-actions">
+                    <button><i class="far fa-heart"></i> 267</button>
+                    <button><i class="far fa-comment"></i> 56</button>
+                    <button><i class="far fa-share-square"></i></button>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                    <div class="user-info">
+                        <h4>李锐瞳</h4>
+                        <span class="user-rank">锐瞳</span>
+                    </div>
+                    <span class="post-time">2天前</span>
+                </div>
+                <div class="card-content">
+                    <p>【技能分享】如何利用智能监控系统提高工作效率：1. 设置重点区域移动检测；2. 定制异常行为识别算法；3. 链接报警响应系统。这套方法帮我在年度隐患识别评比中获得了第一名，分享给大家！ #技能提升 #科技赋能</p>
+                    <div class="video-preview">
+                        <img src="../img/content3.jpeg" alt="视频封面" />
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span class="video-duration">03:45</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button><i class="far fa-heart"></i> 198</button>
+                    <button><i class="far fa-comment"></i> 37</button>
+                    <button><i class="far fa-share-square"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="social.html" class="nav-item active">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

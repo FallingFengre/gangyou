@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 消息</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/messages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <div class="logo">
+                <img src="../img/logo.png"  alt="岗友" />
+                <h1>岗友</h1>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="icon-btn" id="search-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-btn"><i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <a href="profile.html" class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                    <span class="rank-badge">三星银卫</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- 消息搜索栏 -->
+        <div class="message-search-container hidden" id="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="搜索消息或联系人..." />
+                <button class="cancel-btn" id="cancel-search">取消</button>
+            </div>
+        </div>
+
+        <!-- 消息分类标签页 -->
+        <div class="message-tabs">
+            <div class="tab active" data-target="chat-list">私聊</div>
+            <div class="tab" data-target="group-list">群聊</div>
+            <div class="tab" data-target="notification-list">通知</div>
+        </div>
+
+        <!-- 消息列表容器 -->
+        <div class="message-container">
+            <!-- 私聊列表 -->
+            <div class="message-list active" id="chat-list">
+                <!-- 置顶联系人 -->
+                <div class="message-item pinned">
+                    <div class="pinned-tag">置顶</div>
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="张队长" />
+                        <span class="online-status"></span>
+                    </div>
+                    <div class="message-info">
+                        <div class="message-header">
+                            <h3>张队长</h3>
+                            <span class="message-time">09:45</span>
+                        </div>
+                        <div class="message-preview">
+                            <p>今天的巡逻安排我已经发到群里了，请查收</p>
+                        </div>
+                    </div>
+                    <div class="unread-badge">2</div>
+                </div>
+
+                <!-- 普通联系人 -->
+                <div class="message-item">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="王铁卫" />
+                        <span class="online-status"></span>
+                    </div>
+                    <div class="message-info">
+                        <div class="message-header">
+                            <h3>王铁卫</h3>
+                            <span class="message-time">昨天</span>
+                        </div>
+                        <div class="message-preview">
+                            <p>明天能帮我换个班吗？我有急事</p>
+                        </div>
+                    </div>
+                    <div class="unread-badge">1</div>
+                </div>
+
+                <div class="message-item">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="李星星" />
+                        <span class="online-status offline"></span>
+                    </div>
+                    <div class="message-info">
+                        <div class="message-header">
+                            <h3>李星星</h3>
+                            <span class="message-time">周一</span>
+                        </div>
+                        <div class="message-preview">
+                            <p>你好，我想问一下怎么加入你们的巡逻队</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message-item">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="赵守卫" />
+                        <span class="online-status online"></span>
+                    </div>
+                    <div class="message-info">
+                        <div class="message-header">
+                            <h3>赵守卫</h3>
+                            <span class="message-time">周一</span>
+                        </div>
+                        <div class="message-preview">
+                            <p><i class="fas fa-image"></i> [图片]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="message-item">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="刘队员" />
+                        <span class="online-status offline"></span>
+                    </div>
+                    <div class="message-info">
+                        <div class="message-header">
+                            <h3>刘队员</h3>
+                            <span class="message-time">上周</span>
+                        </div>
+                        <div class="message-preview">
+                            <p>收到，我会准时到岗</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 群聊列表 -->
+            <div class="message-list" id="group-list">
+                <div class="message-item">
+                    <div class="avatar group-avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="南区巡逻小队" />
+                        <span class="group-member-count">12</span>
+                    </div>
+                    <div class="message-info">
+                        <div class="message-header">
+                            <h3>南区巡逻小队</h3>
+                            <span class="message-time">10:30</span>
+                        </div>
+                        <div class="message-preview">
+                            <span class="sender-name">张队长: </span>
+                            <p>今天晚上八点集合，请各位准时到岗</p>
+                        </div>
+                    </div>
+                    <div class="unread-badge">5</div>
+                </div>
+
+                <div class="message-item">
+                    <div class="avatar group-avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="保安技能交流" />
+                        <span class="group-member-count">56</span>
+                    </div>
+                    <div class="message-info">
+                        <div class="message-header">
+                            <h3>保安技能交流</h3>
+                            <span class="message-time">昨天</span>
+                        </div>
+                        <div class="message-preview">
+                            <span class="sender-name">王教官: </span>
+                            <p>分享一个处理突发事件的案例...</p>
+                        </div>
+                    </div>
+                    <div class="unread-badge">12</div>
+                </div>
+
+                <div class="message-item">
+                    <div class="avatar group-avatar">
+                        <img src="../img/logo.png"  alt="岗友官方群" />
+                        <span class="group-member-count">128</span>
+                    </div>
+                    <div class="message-info">
+                        <div class="message-header">
+                            <h3>岗友官方群</h3>
+                            <span class="message-time">上周</span>
+                        </div>
+                        <div class="message-preview">
+                            <span class="sender-name">系统通知: </span>
+                            <p>恭喜张铁卫成为本月最佳守护者！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 通知列表 -->
+            <div class="message-list" id="notification-list">
+                <div class="notification-item unread">
+                    <div class="notification-icon system">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h3>系统通知</h3>
+                            <span class="notification-time">今天 08:15</span>
+                        </div>
+                        <p>您的账号已升级为"三星银卫"，获得更多特权！</p>
+                        <div class="notification-actions">
+                            <button class="action-btn primary">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notification-item unread">
+                    <div class="notification-icon like">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h3>点赞提醒</h3>
+                            <span class="notification-time">昨天 14:30</span>
+                        </div>
+                        <p><strong>王铁卫</strong>和<strong>其他5人</strong>赞了您的动态"今日巡逻记录"</p>
+                        <div class="notification-actions">
+                            <button class="action-btn">查看动态</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-icon comment">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h3>评论提醒</h3>
+                            <span class="notification-time">前天 16:45</span>
+                        </div>
+                        <p><strong>张队长</strong>评论了您的动态："做得好，继续保持！"</p>
+                        <div class="notification-actions">
+                            <button class="action-btn">查看评论</button>
+                            <button class="action-btn">回复</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-icon task">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <h3>任务提醒</h3>
+                            <span class="notification-time">05-01 09:00</span>
+                        </div>
+                        <p>您有一项新的巡逻任务已分配，请查看详情</p>
+                        <div class="notification-actions">
+                            <button class="action-btn primary">接受任务</button>
+                            <button class="action-btn secondary">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新消息快捷按钮 -->
+        <button class="new-message-btn">
+            <i class="fas fa-edit"></i>
+        </button>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="social.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="messages.html" class="nav-item active">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        // 标签页切换
+        const tabs = document.querySelectorAll('.message-tabs .tab');
+        const messageLists = document.querySelectorAll('.message-list');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.target;
+                
+                // 切换标签激活状态
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // 切换对应的消息列表
+                messageLists.forEach(list => {
+                    list.classList.remove('active');
+                    if (list.id === target) {
+                        list.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // 搜索栏显示/隐藏
+        const searchBtn = document.getElementById('search-btn');
+        const searchContainer = document.getElementById('search-container');
+        const cancelSearch = document.getElementById('cancel-search');
+
+        searchBtn.addEventListener('click', () => {
+            searchContainer.classList.remove('hidden');
+            searchContainer.querySelector('input').focus();
+        });
+
+        cancelSearch.addEventListener('click', () => {
+            searchContainer.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

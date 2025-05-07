@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 个人中心</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<script>
+    // 主题切换功能
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        // 检查本地存储中的主题设置
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        // 切换主题
+        themeToggleBtn.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        // 更新主题图标
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+    });
+</script>
+<body>
+    <div class="app-container">
+        <!-- 用户信息头部 -->
+        <div class="profile-header">
+            <div class="cover-image">
+                <img src="../img/toppic4.webp" alt="封面图">
+                <div class="theme-toggle-btn">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </div>
+                <div class="settings-btn">
+                    <i class="fas fa-cog"></i>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="avatar-container">
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=80" alt="用户头像" class="user-avatar">
+                    <div class="rank-badge">三星银卫</div>
+                </div>
+                <div class="user-details">
+                    <h2>张守护</h2>
+                    <div class="user-tags">
+                        <span class="tag"><i class="fas fa-briefcase"></i> 商场保安</span>
+                        <span class="tag"><i class="fas fa-map-marker-alt"></i> 北京</span>
+                        <span class="tag"><i class="fas fa-calendar-alt"></i> 3.2年从业</span>
+                    </div>
+                    <div class="user-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">256</span>
+                            <span class="stat-label">积分</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">38</span>
+                            <span class="stat-label">关注</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">142</span>
+                            <span class="stat-label">粉丝</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 功能模块导航 -->
+        <div class="function-modules">
+            <a href="honor.html" class="module-item">
+                <i class="fas fa-medal"></i>
+                <span>荣誉体系</span>
+            </a>
+            <a href="tasks.html" class="module-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务中心</span>
+            </a>
+            <a href="jobs.html" class="module-item">
+                <i class="fas fa-briefcase"></i>
+                <span>岗位地图</span>
+            </a>
+            <a href="training.html" class="module-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>技能培训</span>
+            </a>
+        </div>
+
+        <!-- 个人数据中心 -->
+        <div class="data-center">
+            <div class="section-header">
+                <h3>个人数据中心</h3>
+                <a href="data.html" class="view-all">查看详情</a>
+            </div>
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="card-icon">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <div class="card-info">
+                        <h4>今日步数</h4>
+                        <div class="card-value">7,849 <span class="unit">步</span></div>
+                        <div class="card-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 78%;"></div>
+                            </div>
+                            <span>目标: 10,000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-card">
+                    <div class="card-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="card-info">
+                        <h4>任务完成率</h4>
+                        <div class="card-value">85<span class="unit">%</span></div>
+                        <div class="card-progress">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                            <span>本月: +12%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 我的动态 -->
+        <div class="my-content">
+            <div class="section-header">
+                <h3>我的动态</h3>
+                <div class="tabs">
+                    <a href="#" class="tab active">动态</a>
+                    <a href="#" class="tab">收藏</a>
+                    <a href="#" class="tab">点赞</a>
+                </div>
+            </div>
+            
+            <!-- 动态列表 -->
+            <div class="content-list">
+                <div class="content-item">
+                    <div class="content-header">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" class="small-avatar">
+                        <div class="content-meta">
+                            <div class="author-info">
+                                <span class="username">张守护</span>
+                                <span class="rank-tag">三星银卫</span>
+                            </div>
+                            <span class="post-time">昨天 15:30</span>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <p>今天成功处理了一起顾客纠纷，心得：保持冷静，先倾听双方，寻找共同点，再提出解决方案。#经验分享 #日常记录</p>
+                        <div class="image-grid">
+                            <img src="../img/content4.jpg" alt="图片1">
+                            <img src="../img/content5.webp" alt="图片2">
+                        </div>
+                    </div>
+                    <div class="content-actions">
+                        <button><i class="far fa-heart"></i> 32</button>
+                        <button><i class="far fa-comment"></i> 8</button>
+                        <button><i class="far fa-share-square"></i></button>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <div class="content-header">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" class="small-avatar">
+                        <div class="content-meta">
+                            <div class="author-info">
+                                <span class="username">张守护</span>
+                                <span class="rank-tag">三星银卫</span>
+                            </div>
+                            <span class="post-time">3天前</span>
+                        </div>
+                    </div>
+                    <div class="content-body">
+                        <p>完成了急救技能培训认证，感谢平台提供学习机会！现在更有信心处理紧急情况了。#技能提升 #急救培训</p>
+                    </div>
+                    <div class="content-actions">
+                        <button><i class="far fa-heart"></i> 67</button>
+                        <button><i class="far fa-comment"></i> 12</button>
+                        <button><i class="far fa-share-square"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="social.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

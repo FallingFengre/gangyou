@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 任务中心</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/tasks.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <div class="logo">
+                <img src="../img/logo.png"  alt="岗友" />
+                <h1>岗友</h1>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="icon-btn"><i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <a href="profile.html" class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                    <span class="rank-badge">三星银卫</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- 任务中心头部 -->
+        <div class="tasks-header">
+            <div class="header-info">
+                <h2>任务中心</h2>
+                <div class="user-points">
+                    <i class="fas fa-star"></i>
+                    <span>256积分</span>
+                </div>
+            </div>
+            <div class="task-stats">
+                <div class="stat-item">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">今日可做</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">已完成</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">85%</div>
+                    <div class="stat-label">完成率</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 任务分类标签 -->
+        <div class="task-tabs">
+            <a href="#" class="tab active">今日任务</a>
+            <a href="#" class="tab">技能成长</a>
+            <a href="#" class="tab">社交互动</a>
+            <a href="#" class="tab">健康管理</a>
+        </div>
+
+        <!-- 任务列表 -->
+        <div class="task-list">
+            <!-- 每日签到 -->
+            <div class="task-card completed">
+                <div class="task-info">
+                    <div class="task-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="task-details">
+                        <h3>每日签到</h3>
+                        <p>连续签到7天可获得额外奖励</p>
+                        <div class="task-progress">
+                            <div class="progress-text">已连续签到: 5天</div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 71%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-reward">
+                    <span class="points">+10</span>
+                    <button class="task-btn completed">
+                        <i class="fas fa-check"></i>
+                        <span>已完成</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 健康目标 -->
+            <div class="task-card in-progress">
+                <div class="task-info">
+                    <div class="task-icon health">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <div class="task-details">
+                        <h3>完成健康步数</h3>
+                        <p>今日目标: 10,000步</p>
+                        <div class="task-progress">
+                            <div class="progress-text">当前进度: 7,849步</div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-reward">
+                    <span class="points">+30</span>
+                    <button class="task-btn in-progress">
+                        <span>进行中</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 技能学习 -->
+            <div class="task-card">
+                <div class="task-info">
+                    <div class="task-icon skill">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="task-details">
+                        <h3>完成监控系统课程</h3>
+                        <p>学习智能监控系统操作基础</p>
+                        <div class="task-progress">
+                            <div class="progress-text">尚未开始</div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-reward">
+                    <span class="points">+50</span>
+                    <button class="task-btn">
+                        <span>去学习</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 社交任务 -->
+            <div class="task-card completed">
+                <div class="task-info">
+                    <div class="task-icon social">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="task-details">
+                        <h3>分享工作经验</h3>
+                        <p>发布一条带#经验分享#的动态</p>
+                        <div class="task-progress">
+                            <div class="progress-text">已完成 (今天 15:30)</div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-reward">
+                    <span class="points">+20</span>
+                    <button class="task-btn completed">
+                        <i class="fas fa-check"></i>
+                        <span>已完成</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 专业技能 -->
+            <div class="task-card">
+                <div class="task-info">
+                    <div class="task-icon skill">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <div class="task-details">
+                        <h3>消防技能认证</h3>
+                        <p>完成消防设备使用与火灾应急演练</p>
+                        <div class="task-tag">限时任务</div>
+                    </div>
+                </div>
+                <div class="task-reward">
+                    <span class="points">+100</span>
+                    <button class="task-btn">
+                        <span>去认证</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 社区任务 -->
+            <div class="task-card">
+                <div class="task-info">
+                    <div class="task-icon community">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="task-details">
+                        <h3>社区安全宣传</h3>
+                        <p>组织一次社区安全知识宣讲</p>
+                        <div class="task-tag">团队任务</div>
+                    </div>
+                </div>
+                <div class="task-reward">
+                    <span class="points">+150</span>
+                    <span class="badge-reward">
+                        <i class="fas fa-award"></i>
+                        社区卫士
+                    </span>
+                    <button class="task-btn">
+                        <span>去组织</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 成就系统 -->
+        <div class="achievements-section">
+            <div class="section-header">
+                <h3>我的成就</h3>
+                <a href="honor.html" class="view-all">查看全部</a>
+            </div>
+            <div class="achievements-progress">
+                <div class="achievement-item in-progress">
+                    <div class="achievement-icon">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <div class="achievement-info">
+                        <div class="achievement-header">
+                            <h4>消防大师</h4>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                        <p>完成3次消防演练 (3/4)</p>
+                    </div>
+                </div>
+                <div class="achievement-item in-progress">
+                    <div class="achievement-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="achievement-info">
+                        <div class="achievement-header">
+                            <h4>健步达人</h4>
+                            <span>60%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%;"></div>
+                        </div>
+                        <p>累计步数达到100万步 (603,274/1,000,000)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="social.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="tasks.html" class="nav-item active">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

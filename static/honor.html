@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 荣誉体系</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/honor.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <a href="javascript:history.back()" class="back-btn">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h2>保安荣誉体系</h2>
+            <div class="nav-actions">
+                <a href="#" class="icon-btn">
+                    <i class="fas fa-share-alt"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- 我的荣誉 -->
+        <div class="my-honor">
+            <div class="honor-header">
+                <img src="https://ui-avatars.com/api/?name=我测&background=random&size=46" alt="用户头像" class="user-avatar">
+                <div class="honor-info">
+                    <h3>当前等级: <span class="rank-highlight">三星银卫</span></h3>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                        <span class="progress-text">距离四星金卫还需 56 积分</span>
+                    </div>
+                </div>
+            </div>
+            <div class="honor-stats">
+                <div class="stat-item">
+                    <span class="stat-value">1250</span>
+                    <span class="stat-label">总积分</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">16</span>
+                    <span class="stat-label">已获徽章</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">3.2年</span>
+                    <span class="stat-label">从业时长</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 荣誉体系说明 -->
+        <div class="honor-system">
+            <div class="section-header">
+                <h2>荣誉等级体系</h2>
+                <a href="#" class="view-all">查看全部</a>
+            </div>
+            <div class="system-description">
+                <p>岗友采用"星级卫士"体系，共设6个等级。每个等级代表不同的专业水平与从业能力，晋升需满足相应条件并通过评审。</p>
+            </div>
+
+            <!-- 等级列表 -->
+            <div class="rank-list">
+                <div class="rank-item">
+                    <div class="rank-badge level-1">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>1</span>
+                    </div>
+                    <div class="rank-detail">
+                        <div class="rank-name">一星铁卫</div>
+                        <div class="rank-description">
+                            <p><i class="fas fa-caret-right"></i> 入职满3个月，基础执勤达标</p>
+                            <p><i class="fas fa-medal"></i> 徽章：灰色盾牌 + 1颗铜星</p>
+                            <p><i class="fas fa-tasks"></i> 权限：固定岗值守，执行标准化流程</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rank-item">
+                    <div class="rank-badge level-2">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>2</span>
+                    </div>
+                    <div class="rank-detail">
+                        <div class="rank-name">二星铜卫</div>
+                        <div class="rank-description">
+                            <p><i class="fas fa-caret-right"></i> 独立处理10次突发事件，客户满意度≥85%</p>
+                            <p><i class="fas fa-medal"></i> 徽章：铜色盾牌 + 2颗银星</p>
+                            <p><i class="fas fa-tasks"></i> 权限：机动巡逻岗，初级应急指挥</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rank-item active">
+                    <div class="rank-badge level-3">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>3</span>
+                    </div>
+                    <div class="rank-detail">
+                        <div class="rank-name">三星银卫</div>
+                        <div class="rank-description">
+                            <p><i class="fas fa-caret-right"></i> 客户好评率≥90%，带教3名新人</p>
+                            <p><i class="fas fa-medal"></i> 徽章：银色盾牌 + 3颗金星</p>
+                            <p><i class="fas fa-tasks"></i> 权限：区域组长，制定小型活动安保方案</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-badge level-4">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>4</span>
+                    </div>
+                    <div class="rank-detail">
+                        <div class="rank-name">四星金卫</div>
+                        <div class="rank-description">
+                            <p><i class="fas fa-caret-right"></i> 获市级安保表彰，改进安防流程</p>
+                            <p><i class="fas fa-medal"></i> 徽章：金色盾牌 + 4颗钻星</p>
+                            <p><i class="fas fa-tasks"></i> 权限：跨部门协作，管理智能安防设备</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-badge level-5">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>5</span>
+                    </div>
+                    <div class="rank-detail">
+                        <div class="rank-name">五星永卫</div>
+                        <div class="rank-description">
+                            <p><i class="fas fa-caret-right"></i> 从业10年以上，0重大事故</p>
+                            <p><i class="fas fa-medal"></i> 徽章：钻石盾牌 + 5颗红星</p>
+                            <p><i class="fas fa-tasks"></i> 权限：战略级安保规划，参与行业标准制定</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 专业荣誉称号 -->
+        <div class="honor-titles">
+            <div class="section-header">
+                <h2>专业荣誉称号</h2>
+                <a href="#" class="view-all">查看全部</a>
+            </div>
+            
+            <div class="titles-list">
+                <div class="title-item">
+                    <div class="title-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="title-detail">
+                        <h4>锐瞳</h4>
+                        <p>象征科技赋能下的精准洞察力，年度隐患识别率排名前5%的精英可获此称号</p>
+                    </div>
+                </div>
+                
+                <div class="title-item">
+                    <div class="title-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="title-detail">
+                        <h4>镇岳</h4>
+                        <p>象征不可撼动的权威与行业标杆，获省级安保创新奖的标杆人物</p>
+                    </div>
+                </div>
+                
+                <div class="title-item">
+                    <div class="title-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="title-detail">
+                        <h4>炽焰巡护</h4>
+                        <p>象征主动性与创新力，从被动执行转向优化安防体系的改革者</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 徽章墙 -->
+        <div class="badge-wall">
+            <div class="section-header">
+                <h2>我的徽章墙</h2>
+            </div>
+            
+            <div class="badges-grid">
+                <div class="badge-item earned">
+                    <div class="badge-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <span>首次执勤</span>
+                </div>
+                <div class="badge-item earned">
+                    <div class="badge-icon">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <span>消防达人</span>
+                </div>
+                <div class="badge-item earned">
+                    <div class="badge-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <span>健步达人</span>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon locked">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <span>急救专家</span>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon locked">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <span>训练师</span>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon locked">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <span>沟通大师</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="social.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

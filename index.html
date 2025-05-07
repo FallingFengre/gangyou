@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 首页</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <div class="logo">
+                <img src="img/logo.png"  alt="岗友" />
+                <h1>岗友</h1>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="icon-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="icon-btn"><i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </a>
+                <a href="static/profile.html" class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                    <span class="rank-badge">三星银卫</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- 轮播Banner -->
+        <div class="banner-carousel">
+            <div class="carousel-item active">
+                <img src="img/event2.png" alt="月度评选开启" />
+                <div class="carousel-caption">
+                    <h3>5月守护者评选已开启</h3>
+                    <p>参与评选获得"五星守护者"荣誉称号</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 功能入口矩阵 -->
+        <div class="feature-matrix">
+            <div class="feature-row">
+                <div class="feature-card honor">
+                    <h3><i class="fas fa-medal"></i> 荣誉赛道</h3>
+                    <div class="task-progress">
+                        <span>今日任务完成度</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%;"></div>
+                        </div>
+                        <span>65%</span>
+                    </div>
+                    <a href="static/ranking.html" class="feature-link">查看排行榜 <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="feature-card social">
+                    <h3><i class="fas fa-users"></i> 社交广场</h3>
+                    <div class="recent-activity">
+                        <div class="activity-item">
+                            <img src="https://ui-avatars.com/api/?name=我测&background=random&size=30"  alt="用户头像" />
+                            <p>张守卫发布了新动态「今日巡逻发现可疑人员」</p>
+                        </div>
+                    </div>
+                    <a href="static/social.html" class="feature-link">灵魂匹配 <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-card career">
+                    <h3><i class="fas fa-briefcase"></i> 职业中心</h3>
+                    <div class="job-preview">
+                        <span class="job-tag hot">热门岗位</span>
+                        <p>商场巡逻保安 | 月薪5000-6000元</p>
+                    </div>
+                    <a href="static/jobs.html" class="feature-link">岗位地图 <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="feature-card life">
+                    <h3><i class="fas fa-heartbeat"></i> 生活助手</h3>
+                    <div class="health-data">
+                        <div class="health-item">
+                            <i class="fas fa-walking"></i>
+                            <span>今日步数: 7,849</span>
+                        </div>
+                        <div class="health-item">
+                            <i class="fas fa-utensils"></i>
+                            <span>团购特惠: 3个</span>
+                        </div>
+                    </div>
+                    <a href="static/life.html" class="feature-link">查看更多 <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 推荐内容 -->
+        <div class="recommended-content">
+            <div class="section-header">
+                <h2>推荐内容</h2>
+                <a href="static/social.html">查看更多</a>
+            </div>
+            <div class="content-cards">
+                <div class="content-card">
+                    <div class="card-header">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                        <div class="user-info">
+                            <h4>李铁卫</h4>
+                            <span class="user-rank">一星铁卫</span>
+                        </div>
+                        <span class="post-time">2小时前</span>
+                    </div>
+                    <div class="card-content">
+                        <p>今天负责商场南区巡逻，发现一处安全隐患已上报处理 #保安日常</p>
+                        <img src="img/content1.webp" alt="内容图片" />
+                    </div>
+                    <div class="card-actions">
+                        <button><i class="far fa-heart"></i> 23</button>
+                        <button><i class="far fa-comment"></i> 5</button>
+                        <button><i class="far fa-share-square"></i></button>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="card-header">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=40"  alt="用户头像" />
+                        <div class="user-info">
+                            <h4>王思聪</h4>
+                            <span class="user-rank">四星金卫</span>
+                        </div>
+                        <span class="post-time">5小时前</span>
+                    </div>
+                    <div class="card-content">
+                        <p>分享一个实用技巧：如何更有效地处理突发纠纷事件 #经验分享 #技能提升</p>
+                    </div>
+                    <div class="card-actions">
+                        <button><i class="far fa-heart"></i> 78</button>
+                        <button><i class="far fa-comment"></i> 12</button>
+                        <button><i class="far fa-share-square"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="static/social.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="static/tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="static/messages.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="static/profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+</body>
+</html>

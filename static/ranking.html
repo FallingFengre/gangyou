@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗友 - 排行榜</title>
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/ranking.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script>
+        // 应用保存的主题设置
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航栏 -->
+        <header class="top-nav">
+            <a href="javascript:history.back()" class="back-btn">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            <h2>岗友排行榜</h2>
+            <div class="nav-actions">
+                <a href="#" class="icon-btn">
+                    <i class="fas fa-share-alt"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- 排行榜标签页 -->
+        <div class="ranking-tabs">
+            <div class="tab active" data-tab="weekly">周榜</div>
+            <div class="tab" data-tab="monthly">月榜</div>
+            <div class="tab" data-tab="honor">荣誉榜</div>
+            <div class="tab" data-tab="special">专项榜</div>
+        </div>
+
+        <!-- 我的排名 -->
+        <div class="my-ranking">
+            <div class="rank-number">28</div>
+            <img src="https://ui-avatars.com/api/?name=我测&background=random&size=46" alt="用户头像" class="user-avatar">
+            <div class="rank-info">
+                <h3>我的排名</h3>
+                <div class="rank-stats">
+                    <div class="stat">
+                        <span class="value">1250</span>
+                        <span class="label">积分</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">56</span>
+                        <span class="label">任务</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">12</span>
+                        <span class="label">表彰</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-trend up">
+                <i class="fas fa-arrow-up"></i>
+                <span>3</span>
+            </div>
+        </div>
+
+        <!-- 排行榜主体 -->
+        <div class="ranking-content">
+            <!-- 前三名 -->
+            <div class="top-three">
+                <!-- 第二名 -->
+                <div class="top-player second">
+                    <div class="crown"><i class="fas fa-crown"></i></div>
+                    <div class="player-avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=70" alt="选手头像">
+                        <div class="rank-number">2</div>
+                    </div>
+                    <div class="player-info">
+                        <h4>李铮卫</h4>
+                        <span class="player-rank five-star">五星永卫</span>
+                        <span class="player-score">6,872分</span>
+                    </div>
+                </div>
+                
+                <!-- 第一名 -->
+                <div class="top-player first">
+                    <div class="crown"><i class="fas fa-crown"></i></div>
+                    <div class="player-avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=90" alt="选手头像">
+                        <div class="rank-number">1</div>
+                    </div>
+                    <div class="player-info">
+                        <h4>王思聪</h4>
+                        <span class="player-rank five-star">五星永卫</span>
+                        <span class="player-score">8,256分</span>
+                    </div>
+                </div>
+                
+                <!-- 第三名 -->
+                <div class="top-player third">
+                    <div class="crown"><i class="fas fa-crown"></i></div>
+                    <div class="player-avatar">
+                        <img src="https://ui-avatars.com/api/?name=我测&background=random&size=70" alt="选手头像">
+                        <div class="rank-number">3</div>
+                    </div>
+                    <div class="player-info">
+                        <h4>赵守卫</h4>
+                        <span class="player-rank four-star">四星金卫</span>
+                        <span class="player-score">5,943分</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 排行榜列表 -->
+            <div class="ranking-list">
+                <div class="section-header">
+                    <h2>完整榜单</h2>
+                    <div class="filter">
+                        <select>
+                            <option>全部地区</option>
+                            <option>武汉</option>
+                            <option>北京</option>
+                            <option>上海</option>
+                            <option>广州</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 排行项 -->
+                <div class="rank-item">
+                    <div class="rank-position">4</div>
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="用户头像" class="rank-avatar">
+                    <div class="rank-user-info">
+                        <h4>张安全</h4>
+                        <div class="rank-badges">
+                            <span class="user-rank four-star">四星金卫</span>
+                            <span class="title-badge"><i class="fas fa-eye"></i> 锐瞳</span>
+                        </div>
+                    </div>
+                    <div class="rank-score">5,621分</div>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-position">5</div>
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="用户头像" class="rank-avatar">
+                    <div class="rank-user-info">
+                        <h4>陈巡卫</h4>
+                        <div class="rank-badges">
+                            <span class="user-rank four-star">四星金卫</span>
+                            <span class="title-badge"><i class="fas fa-fire"></i> 炽焰巡护</span>
+                        </div>
+                    </div>
+                    <div class="rank-score">5,320分</div>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-position">6</div>
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="用户头像" class="rank-avatar">
+                    <div class="rank-user-info">
+                        <h4>刘守护</h4>
+                        <div class="rank-badges">
+                            <span class="user-rank four-star">四星金卫</span>
+                        </div>
+                    </div>
+                    <div class="rank-score">5,214分</div>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-position">7</div>
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="用户头像" class="rank-avatar">
+                    <div class="rank-user-info">
+                        <h4>吴保安</h4>
+                        <div class="rank-badges">
+                            <span class="user-rank four-star">四星金卫</span>
+                            <span class="title-badge"><i class="fas fa-mountain"></i> 镇岳</span>
+                        </div>
+                    </div>
+                    <div class="rank-score">4,987分</div>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-position">8</div>
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="用户头像" class="rank-avatar">
+                    <div class="rank-user-info">
+                        <h4>黄守门</h4>
+                        <div class="rank-badges">
+                            <span class="user-rank three-star">三星银卫</span>
+                        </div>
+                    </div>
+                    <div class="rank-score">4,752分</div>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-position">9</div>
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="用户头像" class="rank-avatar">
+                    <div class="rank-user-info">
+                        <h4>郑警备</h4>
+                        <div class="rank-badges">
+                            <span class="user-rank three-star">三星银卫</span>
+                        </div>
+                    </div>
+                    <div class="rank-score">4,689分</div>
+                </div>
+
+                <div class="rank-item">
+                    <div class="rank-position">10</div>
+                    <img src="https://ui-avatars.com/api/?name=我测&background=random&size=50"  alt="用户头像" class="rank-avatar">
+                    <div class="rank-user-info">
+                        <h4>周巡逻</h4>
+                        <div class="rank-badges">
+                            <span class="user-rank three-star">三星银卫</span>
+                        </div>
+                    </div>
+                    <div class="rank-score">4,577分</div>
+                </div>
+            </div>
+
+            <!-- 排行榜说明 -->
+            <div class="ranking-info">
+                <div class="info-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>排行榜说明</h3>
+                </div>
+                <ul class="info-list">
+                    <li>周榜：每周一凌晨更新，统计上周积分总和</li>
+                    <li>月榜：每月1日凌晨更新，统计上月积分总和</li>
+                    <li>荣誉榜：根据荣誉等级和持续贡献计算</li>
+                    <li>专项榜：特定领域的突出表现（如消防技能）</li>
+                </ul>
+                <div class="info-tips">
+                    <p><i class="fas fa-star"></i> 排名前10的用户将获得额外积分奖励</p>
+                    <p><i class="fas fa-medal"></i> 月榜冠军将获得"月度守护者"称号</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 荣誉激励 -->
+        <div class="honor-motivation">
+            <h3>坚守岗位，守护平安</h3>
+            <p>不断挑战自我，提升技能，成为更优秀的安保人员</p>
+            <a href="honor.html" class="view-honor-btn">查看荣誉体系 <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <nav class="bottom-nav">
+            <a href="../index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </a>
+            <a href="social.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>社交圈</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>任务</span>
+            </a>
+            <a href="messages.html" class="nav-item">
+                <i class="fas fa-comments"></i>
+                <span>消息</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        // 简单的标签页切换效果
+        document.querySelectorAll('.ranking-tabs .tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.ranking-tabs .tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                // 这里可以添加实际的标签页内容切换逻辑
+            });
+        });
+    </script>
+</body>
+</html>
