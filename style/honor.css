@@ -171,6 +171,148 @@
     margin-top: 4px;
 }
 
+.level-system {
+    background-color: var(--card-bg-color);
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition-default);
+}
+
+.system-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.system-header h2 {
+    font-size: 20px;
+    color: var(--dark-color);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.system-subtitle {
+    color: var(--gray-color);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.level-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.rank-tier {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.level-card {
+    background: rgba(0, 0, 0, 0.02);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition-default);
+}
+
+.level-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.level-badge {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.level-number {
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.level-title {
+    font-size: 16px;
+    color: var(--dark-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.level-range {
+    color: var(--gray-color);
+    font-size: 12px;
+    margin-bottom: var(--spacing-md);
+}
+
+.privilege-list {
+    list-style: none;
+    padding-left: var(--spacing-sm);
+}
+
+.privilege-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 14px;
+    color: var(--gray-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.privilege-list i {
+    color: var(--primary-color);
+    font-size: 12px;
+}
+
+/* 段位颜色定制 */
+.bronze-tier .level-badge { background: linear-gradient(135deg, #cd7f32, #a05a20); }
+.silver-tier .level-badge { background: linear-gradient(135deg, #c0c0c0, #919191); }
+.gold-tier .level-badge { background: linear-gradient(135deg, #ffd700, #b7a50f); }
+.diamond-tier .level-badge { background: linear-gradient(135deg, #b9f2ff, #6d7b8d); }
+
+.balance-notice {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--border-radius-sm);
+    color: var(--gray-color);
+    font-size: 13px;
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] {
+    .level-card {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+    .privilege-list i {
+        color: var(--accent-color);
+    }
+    .balance-notice {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    .bronze-tier .level-badge { background: linear-gradient(135deg, #a05a20, #6e4016); }
+    .silver-tier .level-badge { background: linear-gradient(135deg, #919191, #6b6b6b); }
+}
+
 /* 荣誉体系说明 */
 .honor-system, .honor-titles, .badge-wall {
     background-color: var(--card-bg-color);
